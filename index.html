@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>代码打乱工具</title>
+  <style>
+    /* 在这里添加CSS样式 */
+  </style>
+</head>
+<body>
+  <h1>代码打乱工具</h1>
+  <textarea id="codeInput" rows="10" cols="50"></textarea>
+  <button onclick="shuffleCode()">打乱代码</button>
+  <pre id="shuffledCode"></pre>
+
+  <script>
+    function shuffleCode() {
+  const codeInput = document.getElementById('codeInput').value;
+  const codeLines = codeInput.split('\n');
+  const shuffledLines = shuffle(codeLines);
+  const shuffledCode = shuffledLines.join('\n');
+  document.getElementById('shuffledCode').textContent = shuffledCode;
+}
+
+function shuffle(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+  </script>
+</body>
+</html>
